@@ -21,12 +21,6 @@ model = genanki.Model(WORDEXTRACT_MODEL_ID,
         ])
 
 parser = argparse.ArgumentParser(description='convert list of json dict entries to anki deck')
-parser.add_argument('-N',
-        dest='levels',
-        metavar='N',
-        type=int,
-        action='append',
-        help='JLPT levels to include; use 0 for unrecognized')
 parser.add_argument('--name',
         dest='name',
         type=str,
