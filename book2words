@@ -1,0 +1,21 @@
+#!/bin/bash -xe
+
+min_occurrences=3
+
+classified=$(mktemp)
+translations=$(mktemp)
+
+trap "rm $classified $translations" EXIT
+
+python3 ./textract.py "$1" | \
+    ./wordextract unidic | \
+    LC_ALL=C sort | \
+    LC_ALL=C uniq -c | \
+    grep -v '*' | \
+    LC_ALL=C sort -rn | \
+    awk '{ if($1 > '${min_occurrences}') { print $2 } }' | \
+    python3 ./jlpt-classify.py -N0 -N1 | tee $classified | \
+    parallel --xargs --keep-order sdcv --data-dir res -xnej '{}' > $translations
+
+paste -d"\t" $classified $translations | awk -f post.awk
+

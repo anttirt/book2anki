@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec java -Dfile.encoding=UTF-8 -cp target/JpWordlistExtract-1.0-SNAPSHOT-jar-with-dependencies.jar net.anttirt.WordExtract "$@"

@@ -1,0 +1,5 @@
+/src/**/*.class
+/target/
+*.swp
+/.genanki-env/
+res/stardict-*/

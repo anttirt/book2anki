@@ -1,0 +1,9 @@
+#!/bin/bash -xe
+
+source .genanki-env/bin/activate
+
+source_file=$1
+deck_name=$2
+
+./book2words "$source_file" | python3 ./words2anki.py --name "$deck_name"
+
