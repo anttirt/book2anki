@@ -14,6 +14,11 @@ The ebook must contain its text within fully closed paragraph tags (`<p>こん�
 * Python 3
 * [sdcv](https://dushistov.github.io/sdcv/)
 
+On Ubuntu 20.04 LTS:
+```bash
+sudo apt install parallel maven openjdk-14-jdk-headless python3-virtualenv sdcv
+```
+
 ### Usage:
 
 #### Setup/build:
